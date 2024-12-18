@@ -36,7 +36,24 @@ function addUserToList(name) {
   if (userList.children.length < 4) {
     const userElement = document.createElement("div");
     userElement.classList.add("user");
+    userElement.id = userList.children.length;
 
+
+    const button_delete = document.createElement("button"); 
+    button_delete.textContent = "❌";
+    button_delete.addEventListener("click", () => deleteUser(userElement));
+
+
+    const button_edit = document.createElement("button"); 
+    button_edit.textContent = "✏️";
+    button_edit.addEventListener("click", () => editUser(userElement));
+
+
+    const userChangeElement = document.createElement("div");
+    userChangeElement.classList.add("user-change")
+    userChangeElement.appendChild(button_delete);
+    userChangeElement.appendChild(button_edit);
+    
     const userNameSpan = document.createElement("span");
     userNameSpan.textContent = name;
 
@@ -45,6 +62,7 @@ function addUserToList(name) {
     button.textContent = "🔮";
     button.addEventListener("click", () => revealMessage(button));
 
+    userElement.appendChild(userChangeElement);
     userElement.appendChild(userNameSpan);
     userElement.appendChild(button);
     userList.appendChild(userElement);
@@ -122,3 +140,28 @@ function revealMessage(button) {
     "La abundancia llega cuando menos la esperas, prepárate.",
     "Una puerta cerrada hoy abrirá una ventana mañana.",
 */
+
+function deleteUser(button) {
+  const confirm_user = confirm(" ¿ Quieres eliminar el participante ?")
+  if (confirm_user === true) {
+    const userElement = document.getElementById(button.id);
+    if (userElement !== null) {
+      userElement.remove()
+    }
+  }
+
+}
+
+function editUser(button) {
+  const userElement = document.getElementById(button.id);
+  if (userElement !== null) {
+    const spanElement = userElement.querySelector("span"); 
+    const new_name_user = prompt("Editar" ,spanElement.textContent);
+
+    if (typeof new_name_user === "string") {
+      spanElement.textContent = new_name_user;
+    }
+
+  }
+
+}
