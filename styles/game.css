@@ -10,17 +10,37 @@
     align-items: center;
 }
   
-.h2 {
+/*.h2 {
     font-size: 1.5em;
     color: #E5B80B;
     margin-bottom: 20px;
-  
+  font-family: 'mercy christole';
 }
+@font-face {
+  font-family: 'mercy christole';
+  src: url('../assets/Mercy\ Christole.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}*/
 
+.h2 {
+  font-size: 2.5em;
+  color: #0C0D3E;
+  background-color: #FFC107;
+  text-align: center;
+  padding: 10px 30px;
+  margin: 20px auto 0 auto;
+  border-radius: 10px;
+  display: inline-block;
+  font-family: 'mercy christole';
+  width: 20%;
+  box-sizing: border-box;
+
+  }
   .user-input-container {
     margin-top: 20px;
   }
-  
+
   .user-list {
     margin-top: 20px;
     display: flex;
